@@ -1,0 +1,179 @@
+//#include <iostream>
+#include <windows.h>
+#include <locale.h>
+#include "geer.h"
+
+using namespace std;
+void printGeerM(geer&);
+void calc (geer&,geer&, double);
+double Np1,Np2;  //глобальные переменные это плохо
+int main()
+{
+    geer geer1(1,2960,100,100);
+    geer geer2(2,1000,100,100);
+    geer geer3(3,4000,100,100);
+    geer geer4(4,10160,100,100);
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+string inp;
+//double Np1,Np2;
+
+    //----------------------------
+    while (inp!="exit")
+        {
+    cout<<"модуль 1 передачи-"<<endl;
+    cin>>geer1.m;
+
+    cout<<"модуль второй передачи"<<endl;
+    cin>>geer3.m;
+
+    cout<<"передаточное число первой передачи"<<endl;
+    cin>>Np1;
+
+
+        geer2.m=geer1.m;
+        geer4.m=geer3.m;
+calc(geer1, geer2, Np1);
+/*
+        geer1.D_delit=228.6/(1+1/Np1);
+//        temp=geer1.D_delit;
+        geer1.calcAll();
+        cout<<"смещение 1-го колеса: "<<geer1.delta<<endl;
+        geer2.D_delit=228.6-geer1.D_delit;
+
+        geer2.calcAll();
+        cout<<"смещение 2-го колеса: "<<geer2.delta<<endl;
+        geer2.calcOb(geer1);
+        */
+      //  geer2.n_ob=geer1.n_ob*geer1.D_delit/geer2.D_delit;
+/*
+geer1.printGeer();
+geer2.printGeer();
+geer3.printGeer();
+geer4.printGeer();
+*/
+//cout<<"++++++++++++++++++++++++++++++"<<endl;
+
+Np2=10160/(2960*Np1);
+cout<<"Передаточное число 2 ступени: "<<Np2<<endl;
+
+calc(geer4, geer3,(1/Np2));
+/*
+    geer3.D_delit=228.6/(1+1/Np2);
+    geer4.D_delit=228.6-geer3.D_delit;
+    geer3.calcAll();
+      cout<<"смещение 3-го колеса: "<<geer3.delta<<endl;
+    geer4.calcAll();
+      cout<<"смещение 4-го колеса: "<<geer4.delta<<endl;
+    geer3.n_ob=geer4.n_ob*geer4.D_delit/geer3.D_delit;
+
+*/
+    printGeerM(geer1);
+    printGeerM(geer2);
+    printGeerM(geer3);
+    printGeerM(geer4);
+
+
+if (abs(geer2.n_ob-geer3.n_ob)<5)
+{
+    cout<<"OK"<<endl;
+}
+     else
+     {
+      //  (abs(Np1-Np2))/2
+         cout<<"обороты не совпали"<<endl;
+     }
+/*
+        geer1.calcD();
+        geer3.calcD();
+        int iter=0;
+
+//while ((abs(geer2.n_ob-geer3.n_ob)>100) || geer2.z>58)
+    while (geer2.z>56)
+       {
+iter++;
+    geer1.calcD();
+    geer2.D_delit=228.6-geer1.D_delit;
+
+    geer2.calcZ();
+
+    geer2.calcM();
+    geer1.m=geer2.m;
+geer2.calcD();
+geer1.calcD();
+
+    geer2.n_ob=geer1.n_ob*geer1.D_delit/geer2.D_delit;
+//------------------------
+cout<<"итерация-"<<iter<<endl;
+geer1.printGeer();
+geer2.printGeer();
+geer3.printGeer();
+geer4.printGeer();
+
+cout<<"--/-----------/---------"<<endl;
+ }
+*/
+ //geer4.calcD();
+//while (abs(geer2.n_ob-geer3.n_ob)>100)
+
+/*while (geer3.z>113)
+       {
+    geer3.D_delit=228.6-geer4.D_delit;
+    geer3.calcZ();
+   // geer3.calcM();
+//geer4.z=geer3.n_ob*geer3.z/geer4.n_ob;
+//geer3.calcD();
+//geer4.calcM();
+//geer3.n_ob=geer4.n_ob*geer4.D_delit/geer3.D_delit;
+//geer4.z=geer3.n_ob*geer3.z/geer4.n_ob;
+//geer3.calcM();
+geer4.m=geer3.m;
+geer3.calcD();
+geer4.calcD();
+geer3.n_ob=geer4.n_ob*geer4.D_delit/geer3.D_delit;
+
+//----------------------------------
+
+//geer2.n_ob=geer3.n_ob;
+
+//-----------------------------------
+//geer1.calcD();
+//geer2.calcD();
+//geer3.calcD();
+//geer4.calcD();
+//geer3.n_ob=geer4.n_ob*geer4.D_delit/geer3.D_delit;
+//geer4.n_ob=geer3.n_ob*geer3.z/geer4.z;
+geer1.printGeer();
+geer2.printGeer();
+geer3.printGeer();
+geer4.printGeer();
+cout<<"--------------------------------"<<endl;
+*/
+    cout <<"exit?"<< endl;
+    cin>>inp;
+}
+    return 0;
+}
+
+void printGeerM (geer& tempgeer)
+{
+  cout<<tempgeer.stup<<" колесo: "<<endl;
+    cout<<"  Z"<<tempgeer.stup<<"-"<<tempgeer.z<<"  ";
+    cout<<"  M-"<<tempgeer.m<<"   ";
+    cout<<"  D_d-"<<tempgeer.D_delit<<"   ";
+    cout<<"  D_N-"<<tempgeer.D_N<<"   ";
+    cout<<"  N об/мин-"<<tempgeer.n_ob<<endl;
+}
+
+void calc(geer& g1, geer& g2, double Npp)
+{
+      g1.D_delit=228.6/(1+1/Npp);
+//        temp=geer1.D_delit;
+        g1.calcAll();
+        cout<<"смещение" <<g1.stup<<"-го колеса: "<<g1.delta<<endl;
+        g2.D_delit=228.6-g1.D_delit;
+
+        g2.calcAll();
+        cout<<"смещение " <<g2.stup<<"-го колеса: "<<g2.delta<<endl;
+        g2.calcOb(g1);
+}

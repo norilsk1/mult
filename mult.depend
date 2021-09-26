@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1631380109 source:c:\progr\mult\mult\src\geer.cpp
+	"geer.h"
+
+1631380109 c:\progr\mult\mult\include\geer.h
+	<iostream>
+
+1632517974 source:c:\progr\mult\mult\main.cpp
+	<windows.h>
+	<locale.h>
+	"geer.h"
+	"func.h"
+	"stupen.h"
+
+1631397533 source:c:\progr\mult\mult\src\func.cpp
+	"../include/func.h"
+	<iostream>
+	<iomanip>
+
+1631380286 c:\progr\mult\mult\include\func.h
+	"geer.h"
+
+1631407816 source:c:\progr\mult\mult\src\stupen.cpp
+	"stupen.h"
+
+1631407729 c:\progr\mult\mult\include\stupen.h
+	"geer.h"
+

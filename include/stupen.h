@@ -13,7 +13,7 @@ class stupen
 
         geer* koleso;
         geer* shestern;
-        float Ustup;
+        float Ustup,Mstup;
         void calc();
         void calc2();
         void calcObkol();

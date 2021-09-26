@@ -41,60 +41,36 @@ string inp;
         cout<<" делительный диаметр 1 колеса: ";
         cin>>stupenT->koleso->D_delit;
 
+        stupenB->koleso->D_delit=(N*228.6*(228.6-stupenT->koleso->D_delit))/(stupenT->koleso->D_delit*(1+(228.6-stupenT->koleso->D_delit)*N/stupenT->koleso->D_delit));
 
+        stupenT->calc();
+        stupenB->calc();
+        stupenT->calcObSh();
+        stupenB->calcObkol();
 
-stupenB->koleso->D_delit=(N*228.6*(228.6-stupenT->koleso->D_delit))/
-(stupenT->koleso->D_delit*(1+(228.6-stupenT->koleso->D_delit)*N/stupenT->koleso->D_delit));
+        func::printGeerM(*stupenT->koleso);
+        func::printGeerM(*stupenT->shestern);  //переписать по ступеням пллплплл
+        func::printGeerM(*stupenB->koleso);
+        func::printGeerM(*stupenB->shestern);
 
-
-    stupenT->calc();
-    stupenB->calc();
-    stupenT->calcObSh();
-    stupenB->calcObkol();
-
-    func::printGeerM(*stupenT->koleso);
-    func::printGeerM(*stupenT->shestern);  //переписать по ступеням пллплплл
-    func::printGeerM(*stupenB->koleso);
-    func::printGeerM(*stupenB->shestern);
-
-
-    geer1.D_delit=(228.6*geer4.D_delit*N)/((228.6-geer4.D_delit)*(1+((geer4.D_delit*N)/(228.6-geer4.D_delit))));
-    geer2.D_delit=228.6-geer1.D_delit;
-    geer3.D_delit=228.6-geer4.D_delit;
-
-    geer1.calcM();
-    geer2.calcM();
-    geer3.calcM();
-    geer4.calcM();
-
-    geer1.calcD();
-    geer2.calcD();
-    geer3.calcD();
-    geer4.calcD();
-    geer2.calcOb(geer1);
-    geer3.calcOb(geer4);
-    func::printGeerM(geer1);    //вывод промежуточного результата
-    func::printGeerM(geer2);
-    func::printGeerM(geer3);
-    func::printGeerM(geer4);
-
-
-
-    cout <<"next?"<< endl;
-    cin>>inp;
+        cout <<"next?"<< endl;
+        cin>>inp;
     }
 
     while (inp!="exit")
-        {
-    cout<<" модуль 1 передачи-"<<endl;
-    cin>>geer1.m;
+    {
+        cout<<" модуль 1 передачи-"<<endl;
+        cin>>geer1.m;
+        //cin>>stupenT->Mstup;
 
-    cout<<" модуль второй передачи"<<endl;
-    cin>>geer3.m;
+        cout<<" модуль второй передачи"<<endl;
+        cin>>geer3.m;
+       /// cin>>stupenB->Mstup;
 
-    cout<<" передаточное число первой передачи"<<endl;
-    cin>>Np1;
-    cout<<" передаточное число 1 передачи"<<Np1<<endl;
+        cout<<" передаточное число первой передачи"<<endl;
+        cin>>Np1;
+       // cin>>stupenT->Ustup;
+        cout<<" передаточное число 1 передачи"<<Np1<<endl;
 
 
         geer2.m=geer1.m;

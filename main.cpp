@@ -33,17 +33,14 @@ string inp;
     //----------------------------
     while (inp!="next")
     {
-         cout<<"общее N: "<<N<<endl;;
-    cout<<"наружный диаметр 4 колеса: ";
-    cin>>geer4.D_delit;
-cout<<"наружный диаметр 1 колеса: ";
-    cin>>stupenT->koleso->D_delit;
-//stupenT->calc();
-//cout<<"print koleso"<<endl;
-//stupenT->koleso->printGeer();
- //func::printGeerM(*stupenT->koleso);
-   // geer4.D_delit=geer1.D_delit/(228.6*10160/2960-geer1.D_delit*10160/2960-1);
-    //stupenT->koleso->D_delit=(228.6*stupenB->shestern->D_delit*N)/((228.6-stupenB->shestern->D_delit)*(1+((stupenB->shestern->D_delit*N)/(228.6-stupenB->shestern->D_delit))));
+        cout<<"общее N: "<<N<<endl;;
+        cout<<"делительный диаметр 4 колеса: ";
+        cin>>geer4.D_delit;
+        cout<<"делительный диаметр 1 колеса: ";
+        cin>>stupenT->koleso->D_delit;
+
+
+
 stupenB->koleso->D_delit=(N*228.6*(228.6-stupenT->koleso->D_delit))/
 (stupenT->koleso->D_delit*(1+(228.6-stupenT->koleso->D_delit)*N/stupenT->koleso->D_delit));
 
@@ -67,14 +64,7 @@ stupenB->koleso->D_delit=(N*228.6*(228.6-stupenT->koleso->D_delit))/
     geer2.calcM();
     geer3.calcM();
     geer4.calcM();
- //   geer2.calcOb(geer1);
-  //  geer3.calcOb(geer4);
-//cout<<"до прощета calcD"<<endl;
- /*   func::printGeerM(geer1);    //вывод промежуточного результата
-    func::printGeerM(geer2);
-    func::printGeerM(geer3);
-   func::printGeerM(geer4);*/
-  //  cout<<"после прощета calcD"<<endl;
+
     geer1.calcD();
     geer2.calcD();
     geer3.calcD();

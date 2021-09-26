@@ -35,10 +35,10 @@ string inp;
     //----------------------------
     while (inp!="next")
     {
-        cout<<"общее N: "<<N<<endl;;
-        cout<<"делительный диаметр 4 колеса: ";
+        cout<<" общее N: "<<N<<endl;;
+        cout<<"  делительный диаметр 4 колеса: ";
         cin>>geer4.D_delit;
-        cout<<"делительный диаметр 1 колеса: ";
+        cout<<" делительный диаметр 1 колеса: ";
         cin>>stupenT->koleso->D_delit;
 
 
@@ -86,15 +86,15 @@ stupenB->koleso->D_delit=(N*228.6*(228.6-stupenT->koleso->D_delit))/
 
     while (inp!="exit")
         {
-    cout<<"модуль 1 передачи-"<<endl;
+    cout<<" модуль 1 передачи-"<<endl;
     cin>>geer1.m;
 
-    cout<<"модуль второй передачи"<<endl;
+    cout<<" модуль второй передачи"<<endl;
     cin>>geer3.m;
 
-    cout<<"передаточное число первой передачи"<<endl;
+    cout<<" передаточное число первой передачи"<<endl;
     cin>>Np1;
-    cout<<"передаточное число 1 передачи"<<Np1<<endl;
+    cout<<" передаточное число 1 передачи"<<Np1<<endl;
 
 
         geer2.m=geer1.m;
@@ -102,7 +102,7 @@ stupenB->koleso->D_delit=(N*228.6*(228.6-stupenT->koleso->D_delit))/
         func::calc(geer1, geer2, Np1);
 
 
-    Np2=static_cast<float>(n4)/(n1*Np1);  cout<<"Передаточное число 2 ступени: "<<Np2<<endl;
+    Np2=static_cast<float>(n4)/(n1*Np1);  cout<<" Передаточное число 2 ступени: "<<Np2<<endl;
 
         func::calc(geer4, geer3,(1.0/Np2));
 

@@ -12,11 +12,11 @@ void func::calc(geer& g1, geer& g2, float Npp)
       g1.D_delit=static_cast<float>(228.6/(1+1.0/Npp));
 
         g1.calcAll();
-        cout<<"смещение" <<g1.stup<<"-го колеса: "<<g1.delta<<endl;
+        cout<<" смещение" <<g1.stup<<"-го колеса: "<<g1.delta<<endl;
         g2.D_delit=static_cast<float>(228.6-g1.D_delit);
 
         g2.calcAll();
-        cout<<"смещение " <<g2.stup<<"-го колеса: "<<g2.delta<<endl;
+        cout<<" смещение " <<g2.stup<<"-го колеса: "<<g2.delta<<endl;
         g2.calcOb(g1);
 }
 
@@ -29,17 +29,17 @@ if (abs(gg2.n_ob-gg3.n_ob)<20)
     func::printGeerM(gg3);
     func::printGeerM(gg4);
 
-    std::cout<<"OK"<<std::endl;
+    std::cout<<" OK"<<std::endl;
 }
      else
      {
         Npp1=(gg2.n_ob-(abs(gg2.n_ob-gg3.n_ob))/2.0)/gg1.n_ob;
         Npp2=(gg4.n_ob)/(gg3.n_ob+(abs(gg2.n_ob-gg3.n_ob))/2.0);
-         std::cout<<"обороты не совпали"<<std::endl;
+         std::cout<<" обороты не совпали"<<std::endl;
         func::calc(gg1, gg2, Npp1);
         func::calc(gg4, gg3,(1.0/Npp2));
-        std::cout<<"Передаточное число 2 ступени: "<<Npp2<<std::endl;
-        std::cout<<"Передаточное число 1 ступени: "<<Npp1<<std::endl;
+        std::cout<<" Передаточное число 2 ступени: "<<Npp2<<std::endl;
+        std::cout<<" Передаточное число 1 ступени: "<<Npp1<<std::endl;
     func::printGeerM(gg1);
     func::printGeerM(gg2);
     func::printGeerM(gg3);

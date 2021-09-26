@@ -84,8 +84,6 @@ stupenB->koleso->D_delit=(N*228.6*(228.6-stupenT->koleso->D_delit))/
     func::printGeerM(geer1);    //вывод промежуточного результата
     func::printGeerM(geer2);
     func::printGeerM(geer3);
-
-
     func::printGeerM(geer4);
 
 

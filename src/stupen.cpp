@@ -7,7 +7,7 @@ stupen::stupen(int Zkol, int Zsh, float OBinp=10, float OBout=10)
     shestern= new geer(1,OBout,Zsh,100);
 
     //koleso.D_delit=(228.6*geer4.D_delit*N)/((228.6-geer4.D_delit)*(1+((geer4.D_delit*N)/(228.6-geer4.D_delit))));
-   // shestern->D_delit=228.6-koleso->D_delit; //но нужен метод поссле ввода
+   // shestern->D_delit=228.6-koleso->D_delit; //РЅРѕ РЅСѓР¶РµРЅ РјРµС‚РѕРґ РїРѕСЃСЃР»Рµ РІРІРѕРґР°
 //    geer3.D_delit=228.6-geer4.D_delit;
 /*
     geer1.calcM();
@@ -20,7 +20,7 @@ stupen::stupen(int Zkol, int Zsh, float OBinp=10, float OBout=10)
     geer4.calcD();
     geer2.calcOb(geer1);
     geer3.calcOb(geer4);
-    func::printGeerM(geer1);    //вывод промежуточного результата
+    func::printGeerM(geer1);    //РІС‹РІРѕРґ РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅРѕРіРѕ СЂРµР·СѓР»СЊС‚Р°С‚Р°
     func::printGeerM(geer2);
     func::printGeerM(geer3);
     func::printGeerM(geer4);
@@ -44,11 +44,11 @@ void stupen::calc2()
       g1.D_delit=static_cast<float>(228.6/(1+1.0/Npp));
 
         g1.calcAll();
-        cout<<"смещение" <<g1.stup<<"-го колеса: "<<g1.delta<<endl;
+        cout<<"СЃРјРµС‰РµРЅРёРµ" <<g1.stup<<"-РіРѕ РєРѕР»РµСЃР°: "<<g1.delta<<endl;
         g2.D_delit=static_cast<float>(228.6-g1.D_delit);
 
         g2.calcAll();
-        cout<<"смещение " <<g2.stup<<"-го колеса: "<<g2.delta<<endl;
+        cout<<"СЃРјРµС‰РµРЅРёРµ " <<g2.stup<<"-РіРѕ РєРѕР»РµСЃР°: "<<g2.delta<<endl;
         g2.calcOb(g1);
         */
 }

@@ -53,12 +53,12 @@ void geer::calcOb(geer& para)
 void geer::printGeer()
 {
     using namespace std;
-     cout<<stup<<" êîëåño: "<<endl;
+     cout<<stup<<" ÐºÐ¾Ð»ÐµÑo: "<<endl;
     cout<<"  Z"<<stup<<"-"<<z<<"  ";
     cout<<"  M-"<<m<<"   ";
     cout<<"  D_d-"<<D_delit<<"   ";
     cout<<"  D_N-"<<D_N<<"   ";
-    cout<<"  N îá/ìèí-"<<n_ob<<endl;
+    cout<<"  N Ð¾Ð±/Ð¼Ð¸Ð½-"<<n_ob<<endl;
 }
 geer::~geer()
 {

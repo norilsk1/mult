@@ -7,15 +7,17 @@
 
 using namespace std;
 
-float Np1,Np2;  //глобальные переменные это плохо
+float Np1,Np2;  //РіР»РѕР±Р°Р»СЊРЅС‹Рµ РїРµСЂРµРјРµРЅРЅС‹Рµ СЌС‚Рѕ РїР»РѕС…Рѕ
 int main()
 {
 
 stupen* stupenT= new stupen(116,57,2960.0,10);
 stupen* stupenB= new stupen(113,67,10,10160.0);
 
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
+ //   SetConsoleCP(1251);
+ //   SetConsoleOutputCP(1251);
+     SetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);
 string inp;
  float N,n1,n4;
  n1=2960.0;
@@ -33,10 +35,10 @@ string inp;
     //----------------------------
     while (inp!="next")
     {
-        cout<<"общее N: "<<N<<endl;;
-        cout<<"делительный диаметр 4 колеса: ";
+        cout<<"РѕР±С‰РµРµ N: "<<N<<endl;;
+        cout<<"РґРµР»РёС‚РµР»СЊРЅС‹Р№ РґРёР°РјРµС‚СЂ 4 РєРѕР»РµСЃР°: ";
         cin>>geer4.D_delit;
-        cout<<"делительный диаметр 1 колеса: ";
+        cout<<"РґРµР»РёС‚РµР»СЊРЅС‹Р№ РґРёР°РјРµС‚СЂ 1 РєРѕР»РµСЃР°: ";
         cin>>stupenT->koleso->D_delit;
 
 
@@ -51,7 +53,7 @@ stupenB->koleso->D_delit=(N*228.6*(228.6-stupenT->koleso->D_delit))/
     stupenB->calcObkol();
 
     func::printGeerM(*stupenT->koleso);
-    func::printGeerM(*stupenT->shestern);  //переписать по ступеням пллплплл
+    func::printGeerM(*stupenT->shestern);  //РїРµСЂРµРїРёСЃР°С‚СЊ РїРѕ СЃС‚СѓРїРµРЅСЏРј РїР»Р»РїР»РїР»Р»
     func::printGeerM(*stupenB->koleso);
     func::printGeerM(*stupenB->shestern);
 
@@ -71,7 +73,7 @@ stupenB->koleso->D_delit=(N*228.6*(228.6-stupenT->koleso->D_delit))/
     geer4.calcD();
     geer2.calcOb(geer1);
     geer3.calcOb(geer4);
-    func::printGeerM(geer1);    //вывод промежуточного результата
+    func::printGeerM(geer1);    //РІС‹РІРѕРґ РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅРѕРіРѕ СЂРµР·СѓР»СЊС‚Р°С‚Р°
     func::printGeerM(geer2);
     func::printGeerM(geer3);
     func::printGeerM(geer4);
@@ -84,15 +86,15 @@ stupenB->koleso->D_delit=(N*228.6*(228.6-stupenT->koleso->D_delit))/
 
     while (inp!="exit")
         {
-    cout<<"модуль 1 передачи-"<<endl;
+    cout<<"РјРѕРґСѓР»СЊ 1 РїРµСЂРµРґР°С‡Рё-"<<endl;
     cin>>geer1.m;
 
-    cout<<"модуль второй передачи"<<endl;
+    cout<<"РјРѕРґСѓР»СЊ РІС‚РѕСЂРѕР№ РїРµСЂРµРґР°С‡Рё"<<endl;
     cin>>geer3.m;
 
-    cout<<"передаточное число первой передачи"<<endl;
+    cout<<"РїРµСЂРµРґР°С‚РѕС‡РЅРѕРµ С‡РёСЃР»Рѕ РїРµСЂРІРѕР№ РїРµСЂРµРґР°С‡Рё"<<endl;
     cin>>Np1;
-    cout<<"передаточное число 1 передачи"<<Np1<<endl;
+    cout<<"РїРµСЂРµРґР°С‚РѕС‡РЅРѕРµ С‡РёСЃР»Рѕ 1 РїРµСЂРµРґР°С‡Рё"<<Np1<<endl;
 
 
         geer2.m=geer1.m;
@@ -100,7 +102,7 @@ stupenB->koleso->D_delit=(N*228.6*(228.6-stupenT->koleso->D_delit))/
         func::calc(geer1, geer2, Np1);
 
 
-    Np2=static_cast<float>(n4)/(n1*Np1);  cout<<"Передаточное число 2 ступени: "<<Np2<<endl;
+    Np2=static_cast<float>(n4)/(n1*Np1);  cout<<"РџРµСЂРµРґР°С‚РѕС‡РЅРѕРµ С‡РёСЃР»Рѕ 2 СЃС‚СѓРїРµРЅРё: "<<Np2<<endl;
 
         func::calc(geer4, geer3,(1.0/Np2));
 
